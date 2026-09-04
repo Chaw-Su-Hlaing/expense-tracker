@@ -1,0 +1,91 @@
+:root {
+  /* Pastel palette */
+  --pastel-periwinkle: #8c97d6;
+  --pastel-pink: #f6c9dc;
+  --pastel-yellow: #f3efb0;
+  --pastel-blue: #63c1e8;
+
+  --page-bg: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--pastel-periwinkle) 10%, white) 0%,
+    color-mix(in srgb, var(--pastel-pink) 10%, white) 35%,
+    color-mix(in srgb, var(--pastel-yellow) 10%, white) 65%,
+    color-mix(in srgb, var(--pastel-blue) 10%, white) 100%
+  );
+  --surface: #ffffff;
+  --text: #6b6b7d;
+  --text-h: #2b2d42;
+  --bg: #ffffff;
+  --border: #e9e8f2;
+  --code-bg: #f4f4fa;
+  --accent: #7c89d4;
+  --accent-hover: #6270c2;
+  --accent-bg: rgba(124, 137, 212, 0.14);
+  --accent-border: rgba(124, 137, 212, 0.45);
+  --danger: #e5484d;
+  --shadow: rgba(43, 45, 66, 0.06) 0 1px 2px, rgba(43, 45, 66, 0.08) 0 8px 24px -8px;
+
+  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --mono: ui-monospace, Consolas, monospace;
+
+  font: 16px/145% var(--sans);
+  letter-spacing: 0.1px;
+  color-scheme: light;
+  color: var(--text);
+  background: var(--page-bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: left;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  margin: 0;
+  min-height: 100svh;
+  background: var(--page-bg);
+  background-attachment: fixed;
+}
+
+h1,
+h2 {
+  font-family: var(--heading);
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+h2 {
+  font-size: 18px;
+  line-height: 118%;
+  letter-spacing: -0.1px;
+  margin: 0 0 4px;
+}
+
+p {
+  margin: 0;
+}
+
+code {
+  font-family: var(--mono);
+  display: inline-flex;
+  border-radius: 4px;
+  color: var(--text-h);
+  font-size: 15px;
+  line-height: 135%;
+  padding: 4px 8px;
+  background: var(--code-bg);
+}
