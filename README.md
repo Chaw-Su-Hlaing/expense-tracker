@@ -66,3 +66,16 @@ Runs on `http://localhost:5173`. It talks to the backend via `VITE_API_BASE_URL`
 | PUT | `/api/expenses/{id}` | Update an expense |
 | DELETE | `/api/expenses/{id}` | Delete an expense |
 | GET | `/api/expenses/summary?month=yyyy-MM` | Today's total, month total, category breakdown (defaults to current month) |
+
+## Deployment
+
+The backend has a `Dockerfile` (JDK 17, builds a runnable jar) and reads two settings from the environment so the same image works for both local dev and hosted deploys — see [application.yml](backend/src/main/resources/application.yml):
+
+| Env var | Purpose | Example |
+|---|---|---|
+| `SPRING_PROFILES_ACTIVE` | `dev` (H2, default) or `postgres` (needs `DB_URL`/`DB_USERNAME`/`DB_PASSWORD`) | `postgres` |
+| `CORS_ALLOWED_ORIGINS` | Comma-separated list of origins allowed to call the API. Supports `*` wildcards (matched via Spring's `allowedOriginPatterns`) | `https://*.vercel.app,http://localhost:5173` |
+
+**Backend on Render**: set `CORS_ALLOWED_ORIGINS` (and `SPRING_PROFILES_ACTIVE`/DB vars if using Postgres) under the service's **Environment** tab. Render's free tier spins the instance down after inactivity — the first request after idling can take 50s+ to respond while it wakes up.
+
+**Frontend on Vercel**: set `VITE_API_BASE_URL` to the deployed backend's `/api` base (e.g. `https://your-backend.onrender.com/api`) under **Settings → Environment Variables**. Vite bakes this in at build time, so changing it requires a redeploy — it won't take effect on the currently-built output.
