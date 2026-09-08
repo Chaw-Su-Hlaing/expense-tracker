@@ -5,13 +5,7 @@
   --pastel-yellow: #f3efb0;
   --pastel-blue: #63c1e8;
 
-  --page-bg: linear-gradient(
-    135deg,
-    color-mix(in srgb, var(--pastel-periwinkle) 10%, white) 0%,
-    color-mix(in srgb, var(--pastel-pink) 10%, white) 35%,
-    color-mix(in srgb, var(--pastel-yellow) 10%, white) 65%,
-    color-mix(in srgb, var(--pastel-blue) 10%, white) 100%
-  );
+  --page-bg: #eef0fb;
   --surface: #ffffff;
   --text: #6b6b7d;
   --text-h: #2b2d42;
