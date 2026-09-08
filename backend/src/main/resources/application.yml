@@ -46,5 +46,5 @@ spring:
     password: ${DB_PASSWORD:expensetracker}
   jpa:
     hibernate:
-      ddl-auto: validate
+      ddl-auto: update
     show-sql: false
